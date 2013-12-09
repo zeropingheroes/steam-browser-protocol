@@ -27,14 +27,6 @@ class SteamBrowserProtocol
 		'largegameslist',
 		'minigameslist',												
 	);
-	private $settingsSections = array(
-		'account',
-		'friends',
-		'interface',
-		'ingame',
-		'downloads',
-		'voice',
-	);
 	private $steamPages = array(
 		'CommentNotifications',
 		'CommunityHome',
@@ -243,16 +235,6 @@ class SteamBrowserProtocol
 			return $this->protocol.'open/'.$component;
 		}
 	}
-												
-	/** 
-	 * Generates a link to open the specified link
-	 * @param  string   $url URL
-	 * @return string
-	 */
-	public function openUrl($url)
-	{
-		return $this->protocol.'openurl/'.$url;
-	}
 
 	/** 
 	 * Generates a link to preload the specified app
@@ -275,17 +257,6 @@ class SteamBrowserProtocol
 	}
 
 	/** 
-	 * Generates a link to purchase the specified app
-	 * @param  string   $appId App ID
-	 * @return string
-	 */
-	public function purchaseApp($appId)
-	{
-		return $this->protocol.'purchase/'.$appId;
-	}
-
-
-	/** 
 	 * Generates a link to launch the specified app
 	 * @param  string   $appId App ID
 	 * @return string
@@ -293,19 +264,6 @@ class SteamBrowserProtocol
 	public function launchApp($appId)
 	{
 		return $this->protocol.'run/'.$appId;
-	}
-
-	/** 
-	 * Generates a link to open Steam's settings page
-	 * @param  string   $section Section
-	 * @return string
-	 */
-	public function openSettings($section = NULL)
-	{
-		if( in_array($section, $this->settingsSections) OR $section == NULL )
-		{
-			return $this->protocol.'settings/'.$section;
-		}
 	}
 
 	/** 
